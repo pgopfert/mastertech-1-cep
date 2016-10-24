@@ -2,18 +2,18 @@
     <ion-content class="padding">
         <div class="list">
             <label class="item item-input">
-                <input type="text" placeholder="Digite o CEP..." ng-model="cep">
+                <input type="text" placeholder="Digite o CEP..." ng-model="form.cep">
             </label>
         </div>
 
-        <button class="button button-block button-positive">
+        <button class="button button-block button-positive" ng-click="search()">
             Buscar
         </button>
 
-        <div class="card">
+        <div class="card" ng-show="address">
             <div class="item item-text-wrap">
-                <p>Avenida Paulista, 2500</p>
-                <p>São Paulo - SP</p>
+                <p>{{address.logradouro}}, {{address.bairro}}</p>
+                <p>{{address.localidade}} - {{address.uf}}</p>
             </div>
         </div>
     </ion-content>
