@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-        .controller('SearchCtrl', function ($scope, $http, $ionicPopup) {
+        .controller('SearchCtrl', function ($scope, $http, $ionicPopup, localStorageService) {
             $scope.form = {};
 
             function showError() {
@@ -18,6 +18,16 @@ angular.module('starter.controllers', [])
                         showError();
                     } else {
                         $scope.address = response.data;
+
+                        var history = localStorageService.get('history');
+
+                        if (!history) {
+                            history = [];
+                        }
+
+                        history.unshift($scope.address);
+
+                        localStorageService.set('history', history);
                     }
                 }, function () {
                     showError();
@@ -26,6 +36,12 @@ angular.module('starter.controllers', [])
 
         })
 
-        .controller('HistoryCtrl', function ($scope) {
-
+        .controller('HistoryCtrl', function ($scope, $rootScope, localStorageService) {
+            function init() {
+                $scope.history = localStorageService.get('history');
+            }
+            
+            $rootScope.$on('$stateChangeStart', init);
+            
+            init();
         });

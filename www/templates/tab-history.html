@@ -1,22 +1,10 @@
 <ion-view view-title="Busca CEP">
     <ion-content class="padding">
         
-        <div class="card">
+        <div class="card" ng-repeat="address in history">
             <div class="item item-text-wrap">
-                <p>Avenida Paulista, 2500</p>
-                <p>São Paulo - SP</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="item item-text-wrap">
-                <p>Avenida Paulista, 2500</p>
-                <p>São Paulo - SP</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="item item-text-wrap">
-                <p>Avenida Paulista, 2500</p>
-                <p>São Paulo - SP</p>
+                <p>{{address.logradouro}}, {{address.bairro}}</p>
+                <p>{{address.localidade}} - {{address.uf}}</p>
             </div>
         </div>
     

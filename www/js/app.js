@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngMask'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngMask', 'LocalStorageModule'])
 
         .run(function ($ionicPlatform) {
             $ionicPlatform.ready(function () {
