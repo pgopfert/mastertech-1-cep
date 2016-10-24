@@ -1,7 +1,7 @@
 <ion-view view-title="Busca CEP">
     <ion-content class="padding">
         
-        <div class="card" ng-repeat="address in history">
+        <div class="card" ng-repeat="address in history" on-swipe="delete($index)">
             <div class="item item-text-wrap">
                 <p>{{address.logradouro}}, {{address.bairro}}</p>
                 <p>{{address.localidade}} - {{address.uf}}</p>

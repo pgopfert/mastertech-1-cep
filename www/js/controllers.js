@@ -41,6 +41,12 @@ angular.module('starter.controllers', [])
                 $scope.history = localStorageService.get('history');
             }
             
+            $scope.delete = function(index){
+                $scope.history.splice(index,1);
+                localStorageService.set('history', $scope.history);
+            };
+            
+            //init
             $rootScope.$on('$stateChangeStart', init);
             
             init();
