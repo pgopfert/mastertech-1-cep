@@ -1,18 +1,26 @@
 angular.module('starter.controllers', [])
 
-        .controller('SearchCtrl', function ($scope, $http) {
+        .controller('SearchCtrl', function ($scope, $http, $ionicPopup) {
             $scope.form = {};
 
+            function showError() {
+                $ionicPopup.alert({
+                    template: 'CEP Inválido!'
+                });
+            }
 
-            $scope.search = function(){
+            $scope.search = function () {
                 $http({
                     method: 'GET',
                     url: 'http://viacep.com.br/ws/' + $scope.form.cep + '/json/'
                 }).then(function (response) {
-                    $scope.address = response.data;
-                }, function (response) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
+                    if (response.data.erro) {
+                        showError();
+                    } else {
+                        $scope.address = response.data;
+                    }
+                }, function () {
+                    showError();
                 });
             };
 

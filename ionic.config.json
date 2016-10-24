@@ -1,4 +1,9 @@
 {
   "name": "cep",
-  "app_id": ""
+  "app_id": "",
+  "watchPatterns":[
+      "./www/js/*",
+      "./www/templates/*",
+      "./www/css/*"
+  ]
 }
