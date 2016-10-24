@@ -1,1 +1,16 @@
-/* Empty. Add your own CSS if you like */
+.ng-leave
+{ 
+    -webkit-transition: 100ms linear all;
+    -moz-transition: 100ms linear all;
+    -ms-transition: 100ms linear all;
+    -o-transition: 100ms linear all;
+    transition: 100ms linear all;
+    
+    margin-left:0;
+    margin-right:0;
+} 
+
+.ng-leave.ng-leave-active{
+    margin-left: -120%;
+    margin-right: 120%;
+}
